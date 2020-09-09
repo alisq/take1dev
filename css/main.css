@@ -12,7 +12,7 @@
 }
 
 #punchout1.active {
-	transform:translate(-50%,-50%) scale(2);
+	transform:translate(-50%,-50%) skew(30deg, 20deg);
 }
 
 
