@@ -1,5 +1,5 @@
 :root {
-	--fill-color:#000;
+	--fill-color:#FFF;
 	/*cursor:none;*/
 }
 
@@ -47,6 +47,6 @@
 #fill-bottom {
 	width:5000px;
 	height:2000px;
-	top:840px;
+	top:304px;
 	left:-2000px;
 }
