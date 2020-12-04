@@ -1,0 +1,19 @@
+{
+  "name": "take1dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile-sass": "node-sass scss/main.scss css/main.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alisq/take1dev.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alisq/take1dev/issues"
+  },
+  "homepage": "https://github.com/alisq/take1dev#readme"
+}
