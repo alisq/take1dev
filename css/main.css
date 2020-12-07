@@ -182,6 +182,9 @@ h1 span {
   background: black;
   color: #FFF; }
 
+.disabled {
+  opacity: 0.6; }
+
 #menu li.no-click:hover {
   color: black;
   background: #FFF; }
@@ -300,7 +303,8 @@ h1 span {
 
 .main-carousel {
   /*height:90vh;*/
-  margin: 2em 0; }
+  margin: 2em 0;
+  z-index: 50; }
 
 .carousel-cell {
   width: 100vw;

@@ -1,10 +1,10 @@
 $(document).ready(function(){
 
 
-$(".mmm,.mmm2").marqueeify({"speed":60});
+//$(".mmm,.mmm2").marqueeify({"speed":60});
 
 
-fetch('http://take1cms.codepanel.in/jsonapi/node/interview?include=field_images,field_interviewee_i') 
+fetch('http://fogodev.res-commune.org/jsonapi/node/interview?include=field_images,field_interviewee_i') 
   .then(response => response.json())
   .then(p => {
     
@@ -63,6 +63,8 @@ fetch('http://take1cms.codepanel.in/jsonapi/node/interview?include=field_images,
           bio = p.data[i].field_interviewee_bio.value;
         }
 
+        var disabled = "";
+
       var body = ""
       
       if (p.data[i].body != undefined) {        
@@ -84,6 +86,10 @@ fetch('http://take1cms.codepanel.in/jsonapi/node/interview?include=field_images,
                             insta+
                           "</div>"+
                        "</div>";
+
+
+      } else {
+        disabled = "disabled";
       }
 
       subtitle = "";
@@ -91,7 +97,7 @@ fetch('http://take1cms.codepanel.in/jsonapi/node/interview?include=field_images,
         subtitle = p.data[i].field_subtitle;
       }
 
-       var section=   "<li id='section"+p.data[i].drupal_internal__nid+"'>"+
+       var section=   "<li id='section"+p.data[i].drupal_internal__nid+"' class="+disabled+">"+
                         "<div class='title'>"+
                           p.data[i].title+
                           
@@ -124,7 +130,7 @@ fetch('http://take1cms.codepanel.in/jsonapi/node/interview?include=field_images,
 $(".pull").each(function(){
   id = $(this).data("id");
 
-    fetch('http://take1cms.codepanel.in/jsonapi/node/page/'+id) 
+    fetch('http://fogodev.res-commune.org/jsonapi/node/page/'+id) 
   .then(response => response.json())
   .then(p => {
     //console.log(p)
@@ -147,21 +153,13 @@ $(".pull").each(function(){
 
     $(document).on("click",".title",function(){
 
-      if ( !$(this).parent("li").hasClass("active") ) {
+      if (( !$(this).parent("li").hasClass("active") )  && (!$(this).parent("li").hasClass("disabled"))) {
             $("li.active").removeClass("active");
-
             $(this).parent("li").addClass("active");
 
-
-   
-
             nid = $(this).parent("li").attr("id").replace("section-","");
-
             window.history.pushState("object or string", "Page Title", "/?entry="+nid);
-
-             //document.location.href = setUrlParameter(window.location.href, "entry", nid)
-
-             $(document).scrollTo("#"+$(this).parent("li").attr("id"),200)
+            $(document).scrollTo("#"+$(this).parent("li").attr("id"),200)
 
 
 
