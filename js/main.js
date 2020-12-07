@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 
-//$(".mmm,.mmm2").marqueeify({"speed":60});
+$(".mmm,.mmm2").marqueeify({"speed":60});
 
 
 fetch('http://fogodev.res-commune.org/json/interviews?_format=json') 
