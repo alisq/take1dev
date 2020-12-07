@@ -81,11 +81,6 @@ a:hover {
   margin-bottom: 0.5em;
   height: auto !important; }
 
-.workTitle .at:hover {
-  cursor: default !important;
-  background: #FFF !important;
-  color: #000 !important; }
-
 .label {
   padding-left: 3em;
   box-sizing: border-box;
@@ -177,17 +172,8 @@ h1 span {
   background: #FFF;
   z-index: 10; }
 
-#interview-space > li:hover,
-#menu > li:hover {
-  background: black;
-  color: #FFF; }
-
 .disabled {
-  opacity: 0.6; }
-
-#menu li.no-click:hover {
-  color: black;
-  background: #FFF; }
+  color: rgba(0, 0, 0, 0.3); }
 
 #menu li.active {
   height: auto;
@@ -251,24 +237,31 @@ h1 span {
 .active .open-close:before { content:"\00d7"; }
 
 */
-#menu li.active:hover {
-  color: black;
-  background: none; }
-
 .title {
-  padding: 1.25em 0 0.5em;
   font-family: burgess, monospace;
   font-weight: 400;
   font-style: normal;
   cursor: pointer;
+  height: calc(100vh / 8);
   font-size: 36px;
-  font-size: 36px;
-  height: 100%;
+  position: relative;
   text-align: center; }
+  .active .title, .title:hover {
+    color: #FFF;
+    background: #000; }
+
+.disabled .title:hover {
+  background: #FFF;
+  color: #000; }
 
 .title-sans {
-  font-family: "calibre";
-  /*font-weight:bold;*/ }
+  font-family: "calibre"; }
+
+.name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
 
 .launch-date,
 .subtitle {
@@ -284,7 +277,7 @@ h1 span {
 
 .subtitle {
   text-align: left;
-  top: 5em;
+  bottom: 1em;
   right: 1em; }
 
 .an {
@@ -362,14 +355,6 @@ h1 span {
   color: #FFF;
   background: #000;
   transform: rotate(-15deg); }
-
-.tb:hover {
-  background: #FFF;
-  color: black; }
-
-.bpb:hover {
-  color: #FFF;
-  background: black; }
 
 .image-container {
   margin-top: 2em;
@@ -562,12 +547,15 @@ h3 {
   top: 0;
   overflow: hidden;
   height: calc(100vh/8);
-  background: #000;
-  color: #FFF; }
-  #sectiontitle .title {
-    transform: scale(2.5, 5) translateY(0.48em);
+  background: #000; }
+  #sectiontitle h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 73%) scale(3.5, 8);
     text-transform: uppercase;
-    font-weight: bold; }
+    font-weight: bold;
+    color: #fff; }
   #sectiontitle:hover {
     background: #000; }
 

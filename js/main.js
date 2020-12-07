@@ -4,20 +4,19 @@ $(document).ready(function(){
 //$(".mmm,.mmm2").marqueeify({"speed":60});
 
 
-fetch('http://fogodev.res-commune.org/jsonapi/node/interview?include=field_images,field_interviewee_i') 
+fetch('http://fogodev.res-commune.org/json/interviews?_format=json') 
   .then(response => response.json())
   .then(p => {
     
     
-     for (i=0;i<p.data.length;i++) {
+     for (i=0;i<p.length;i++) {
       
 
-
-
-      preamble = "";
-      if (p.data[i].field_pream != undefined) {
-        preamble = "<h3>intro</h3>"+p.data[i].field_pream.value;
-      }
+        preamble = "";
+        
+        if (p[i].field_pream[0] != null) {
+          preamble = "<h3>intro</h3>"+p[i].field_pream[0].value;
+        }
 
 
 
@@ -26,48 +25,54 @@ fetch('http://fogodev.res-commune.org/jsonapi/node/interview?include=field_image
      
       var images = "";
 
-      for (j=0;j<p.data[i].field_images.length;j++) {
-        images+="<div class='carousel-cell'><div class='img'><img src='"+p.data[i].field_images[j].image_style_uri[0].large+"'/><div class='caption'>"+p.data[i].field_images[j].meta.alt+"</div></div></div>";  
+      for (j=0;j<p[i].field_images.length;j++) {
+
+
+        images+="<div class='carousel-cell'><div class='img'><img src='"+p[i].field_images[j].url+"'/><div class='caption'>"+p[i].field_images[j].alt+"</div></div></div>";  
       }
 
 
       var i_pic = "";
-      if (p.data[i].field_interviewee_i.image_style_uri != undefined) {        
+      if (p[i].field_interviewee_i.image_style_uri != undefined) {        
         
-        i_pic = "<div class='interview-pic'><img src='"+p.data[i].field_interviewee_i.image_style_uri[1].medium+"' /></div>";
+        i_pic = "<div class='interview-pic'><img src='"+p[i].field_interviewee_i.image_style_uri[1].medium+"' /></div>";
       }
 
 
+        
       var site = "";
-        if (p.data[i].field_interviewee_websi != null) {
-          u = p.data[i].field_interviewee_websi.uri.replace("https://","")
+        if (p[i].field_interviewee_websi.uri != undefined) {
+          u = p[i].field_interviewee_websi.uri.replace("https://","").replace("http://","")
           u = u.replace("www.","")
-          site = "<div class='interviewee-site'><a href='"+p.data[i].field_interviewee_websi.uri+"' target='_blank'>"+u+"</a></div>";
+          site = "<div class='interviewee-site'><a href='"+p[i].field_interviewee_websi.uri+"' target='_blank'>"+u+"</a></div>";
       }
 
       var insta="";
 
-
-       if (p.data[i].field_interv != null) {
-          u = p.data[i].field_interv.uri.replace("https://","")
+      
+       if (p[i].field_interv[0] != undefined) {
+         
+          u = p[i].field_interv[0].uri.replace("https://","")
         
           u = u.replace("www.","")        
         
-          insta = "<div class='interviewee-insta'><a href='"+p.data[i].field_interv.uri+"' target='_blank'>"+u+"</a></div>";
+          insta = "<div class='interviewee-insta'><a href='"+p[i].field_interv.uri+"' target='_blank'>"+u+"</a></div>";
         
       }
 
 
         var bio = "";
-        if (p.data[i].field_interviewee_bio != undefined) {
-          bio = p.data[i].field_interviewee_bio.value;
+
+        
+        if (p[i].field_interviewee_bio[0] != undefined) {
+          bio = p[i].field_interviewee_bio[0].value;
         }
 
         var disabled = "";
 
       var body = ""
       
-      if (p.data[i].body != undefined) {        
+      if (p[i].body[0] != undefined) {        
         
         
 
@@ -76,7 +81,7 @@ fetch('http://fogodev.res-commune.org/jsonapi/node/interview?include=field_image
                        
                           "<h3>interview</h3>"+
 
-                          p.data[i].body.value+                  
+                          p[i].body[0].value+                  
 
 
                           "<div class='interviewee-info'>"+
@@ -93,15 +98,17 @@ fetch('http://fogodev.res-commune.org/jsonapi/node/interview?include=field_image
       }
 
       subtitle = "";
-      if (p.data[i].field_subtitle != null) {
-        subtitle = p.data[i].field_subtitle;
+      if (p[i].field_subtitle[0] != null) {
+        subtitle = p[i].field_subtitle[0].value;
       }
 
-       var section=   "<li id='section"+p.data[i].drupal_internal__nid+"' class="+disabled+">"+
+
+      
+       var section=   "<li id='section"+p[i].nid[0].value+"' class="+disabled+">"+
                         "<div class='title'>"+
-                          p.data[i].title+
+                        "<div class='name'>"+p[i].title[0].value+"</div>"+
                           
-                          "<div class='launch-date'>"+p.data[i].field_launch_date+"</div>"+
+                          "<div class='launch-date'>"+p[i].field_launch_date[0].value+"</div>"+
                           "<div class='subtitle'>"+subtitle+"</div>"+
                        "</div>"+
                        "<div class='main-carousel'>"+
@@ -159,8 +166,11 @@ $(".pull").each(function(){
 
             nid = $(this).parent("li").attr("id").replace("section-","");
             window.history.pushState("object or string", "Page Title", "/?entry="+nid);
-            $(document).scrollTo("#"+$(this).parent("li").attr("id"),200)
-
+            // 
+            setTimeout(function(){
+            
+              $(document).scrollTo("#"+nid,300)
+            },50)
 
 
       } else {
@@ -195,7 +205,7 @@ var url = new URL(window.location.href);
 
  if (url.searchParams.get("entry") != undefined) {
   a = "#"+url.searchParams.get("entry");
-  console.log(a)
+  
   setTimeout(function(){
   $(a).addClass("active");
   $(document).scrollTo(a,"200")

@@ -104,11 +104,11 @@ a:hover {
     height:auto!important;
 }
 
-.workTitle .at:hover { 
-    cursor:default!important;
-    background:#FFF!important;
-    color:#000!important;
-}
+// .workTitle .at:hover { 
+//     cursor:default!important;
+//     background:#FFF!important;
+//     color:#000!important;
+// }
 
 .label {
     padding-left: 3em;
@@ -231,22 +231,22 @@ h1 span {
     z-index:10;
 }
 
-#interview-space > li:hover,
-#menu > li:hover {
-    background:black;
-    color:#FFF;
+// #interview-space > li:hover,
+// #menu > li:hover {
+//     background:black;
+//     color:#FFF;
 
-}
+// }
 
 .disabled {
-    opacity:0.6
+    color:rgba(0,0,0,0.3);
 }
 
-#menu li.no-click:hover {
-    color:black;
-    background:#FFF;
+// #menu li.no-click:hover {
+//     color:black;
+//     background:#FFF;
 
-}
+// }
 
 #menu li.active {
 
@@ -303,36 +303,50 @@ h1 span {
 .active .open-close:before { content:"\00d7"; }
 
 */
-#menu li.active:hover {
-    color:black;
-    background:none;
-}
+// #menu li.active:hover {
+//     color:black;
+//     background:none;
+// }
 
 
 .title {
-    padding:1.25em 0 0.5em;
     font-family: burgess, monospace;
     font-weight: 400;
     font-style: normal;
     cursor:pointer;
+    height:calc(100vh / 8);
     font-size: 36px;
-    font-size: 36px;
-    height:100%;
+    position:relative;
     text-align:center;
+
+    .active &,
+    &:hover {
+        color:#FFF;
+        background:#000;
+    }
+}
+
+.disabled .title:hover {
+    background:#FFF;
+    color:#000;
 }
 
 .title-sans {
     font-family:$main-sans;
-    /*font-weight:bold;*/
 }
 
+
+.name {
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+}
 .launch-date,
 .subtitle {
     font-size:15px;
     position:absolute;
     font-family:$main-sans;
     font-weight:bold;
-
 }
 
 .launch-date {
@@ -344,7 +358,7 @@ h1 span {
 
 .subtitle {
     text-align:left;
-    top:5em;
+    bottom:1em;
     right:1em;
 }
 
@@ -444,16 +458,16 @@ h1 span {
 }
 
 
-.tb:hover {
-    background:#FFF;
-    color:black;
+// .tb:hover {
+//     background:#FFF;
+//     color:black;
     
-}
+// }
 
-.bpb:hover {
-    color:#FFF;
-    background:black;
-}
+// .bpb:hover {
+//     color:#FFF;
+//     background:black;
+// }
 
 .image-container {
     margin-top:2em;
@@ -704,12 +718,15 @@ h3 {
     overflow:hidden;
     height:calc(100vh/8);
     background:#000;
-    color:#FFF;
+    // color:#FFF;
 
-    .title {
-        transform: scale(2.5,5) translateY(0.48em);
+    h1 {
+        position:absolute;
+        top:50%; left:50%;
+        transform: translate(-50%, 73%) scale(3.5, 8);
         text-transform: uppercase;
         font-weight: bold;
+        color:#fff
     
         
     }
