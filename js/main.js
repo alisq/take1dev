@@ -165,7 +165,12 @@ $(".pull").each(function(){
             $(this).parent("li").addClass("active");
 
             nid = $(this).parent("li").attr("id").replace("section-","");
-            window.history.pushState("object or string", "Page Title", "/?entry="+nid);
+
+            title = $("#"+nid+" .name").text();
+            console.log(title)
+            window.history.pushState("object or string", "Plug In Editions Online | "+title, "/?entry="+nid);
+          $("title").text("Plug In Editions Online | "+title)
+            
             // 
             setTimeout(function(){
             
@@ -175,6 +180,8 @@ $(".pull").each(function(){
 
       } else {
         $("li.active").removeClass("active");
+        
+        window.history.pushState("object or string", "Plug In Editions Online", window.location.href.split("?")[0]);
       }
       
     })
@@ -183,7 +190,7 @@ $(".pull").each(function(){
     $(document).on("click",".active .open-close",function(){
           $(document).scrollTo(0,200)
           setTimeout(function(){
-          $(".active").removeClass("active");
+            $(".active").removeClass("active");
         },200)
           window.history.pushState("fff","","/")
 
