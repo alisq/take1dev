@@ -132,14 +132,14 @@ fetch('https://editions-online.codepanel.in/json/interviews?_format=json')
     }
   })
 
-  $(".rock").each(function(){
-    t = Math.floor(Math.random()*80)+"vh";
-    l = Math.floor(Math.random()*80)+"vw";
-    $(this).css({
-      "top":t,
-      "left":l
-    })
-  })
+  // $(".rock").each(function(){
+  //   t = Math.floor(Math.random()*80)+"vh";
+  //   l = Math.floor(Math.random()*80)+"vw";
+  //   $(this).css({
+  //     "top":t,
+  //     "left":l
+  //   })
+  // })
 
 
 

@@ -435,6 +435,7 @@ h3 {
     width:100vw;
     top:0;
     overflow:hidden;
+    border-color:white!important;
     @include height-set;
     
 
@@ -462,17 +463,23 @@ h3 {
     position:fixed;
     z-index:20;
     top:100px;
-    mix-blend-mode: difference;
+    mix-blend-mode: exclusion;
     animation: spin 540s infinite;
     animation-timing-function: linear;
     pointer-events:none;
+    position:fixed;
 }
-#rock3, #rock4, #rock5 { width:30vw; }
-// #rock1 { top:5vw; left:5vw}
-// #rock2 { bottom:5vw; left:5vw}
-// #rock4 { top:5vw; right:5vw}
-// #rock3 { bottom:5vw; right:5vw}
-// #rock1 { top:5vw; left:5vw; display:none}
+
+#rock4 { width:25vw; }
+#rock3 { width:30vw; }
+#rock5 { width:20vw; }
+
+
+#rock1 { top:0; left:2vw;}          /* egg */
+#rock2 { top: 25vh; right:5vw; }    /* spike */
+#rock4 { top:2vw; right:2vw; }      /* rock */
+#rock3 { top:30vw; right:15vw; }    /* rock same as 4 */
+#rock5 { top:25vw; left:5vw; }
 
 #web .reverse {
     background: black;
