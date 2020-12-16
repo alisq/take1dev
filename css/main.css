@@ -12,6 +12,12 @@ a::before {
   font-style: normal; }
 
 @font-face {
+  font-family: 'calibre';
+  src: url("/fonts/Calibre-Semibold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
   font-family: 'burgess';
   src: url("/fonts/burgess-regular-pro.otf") format("opentype");
   font-weight: normal;
@@ -31,6 +37,27 @@ a::before {
   background: rgba(0, 0, 0, 0.99);
   color: #FFF; }
 
+h1, h2 {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0 0 1em 0; }
+
+h3 {
+  font-size: 0.72em;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: "calibre";
+  font-weight: bold;
+  text-align: center; }
+
+p {
+  margin-bottom: 1em; }
+
+.caption {
+  padding-top: 1em;
+  font-size: 0.75em;
+  text-align: center; }
+
 body {
   background: #FFF;
   color: #000;
@@ -40,24 +67,12 @@ body {
   font-size: 14pt;
   line-height: 16.5pt; }
 
-h1, h2 {
-  font-size: 24px;
-  font-weight: normal;
-  margin: 0 0 1em 0; }
-
-p {
-  margin-bottom: 1em; }
-
 a, a:link, a:visited {
   color: #000;
   text-decoration: underline; }
 
 a:hover {
   text-decoration: none; }
-
-.caption {
-  padding-top: 1em;
-  font-size: 0.75em; }
 
 #menu {
   list-style-type: none; }
@@ -70,33 +85,17 @@ a:hover {
   transition: max-height 0.15s ease-out, height 0.15s ease-out;
   overflow: hidden; }
 
-/* FLOATING ROCKS */
-.mmm, .mmm2 {
-  pointer-events: none;
-  position: fixed;
-  z-index: 8;
-  width: 500px;
-  height: auto;
-  max-width: 500px;
-  animation-name: spin;
-  animation-duration: 54000ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  mix-blend-mode: multiply; }
-
-.mmm {
-  top: 0;
-  left: 0; }
-
-.mmm2 {
-  right: 30%;
-  bottom: 20%; }
-
 @keyframes spin {
   from {
     transform: rotate(0deg); }
   to {
     transform: rotate(360deg); } }
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(-360deg); } }
 
 #intro {
   position: fixed;
@@ -119,47 +118,6 @@ a:hover {
   height: auto;
   max-height: 20000px;
   transition: max-height 0.25s ease-in; }
-
-.punch {
-  position: fixed;
-  width: 17pt;
-  height: 17pt;
-  border-radius: 50%;
-  border: 1px solid #000;
-  /*background:#000;*/
-  z-index: 99;
-  cursor: pointer; }
-
-#web .punch {
-  width: 30px;
-  height: 30px;
-  max-width: 40px;
-  max-height: 40px;
-  background: #FFF;
-  z-index: 10;
-  border: 2px solid #000; }
-
-#punch1 {
-  top: 4em;
-  left: 44%; }
-
-#punch2 {
-  bottom: -2em;
-  left: 0.7em;
-  transform: translateY(-140%); }
-
-#punch3 {
-  bottom: 9em;
-  left: 0.7em;
-  transform: translateY(80%); }
-
-#punch4 {
-  right: 2em;
-  top: 4em; }
-
-#punch5 {
-  bottom: 1em;
-  left: 44%; }
 
 .open-close {
   float: right;
@@ -213,9 +171,9 @@ a:hover {
   font-family: "burgess"; }
 
 .contents {
-  margin: 2em auto;
-  font-size: 14pt;
-  line-height: 16.5pt;
+  margin: auto;
+  font-size: 15pt;
+  line-height: 18pt;
   max-width: 1000px;
   padding: 1em 0.5em; }
 
@@ -224,7 +182,7 @@ a:hover {
   line-height: 1.3em; }
 
 .main-carousel {
-  margin: 2em 0;
+  margin: 0 0 2em;
   z-index: 50; }
 
 .carousel-cell {
@@ -345,10 +303,15 @@ h3 {
   text-transform: uppercase;
   color: red;
   letter-spacing: 0.15em;
-  font-weight: bold; }
+  font-family: "calibre";
+  font-weight: bold;
+  vertical-align: text-top;
+  padding-right: 1em;
+  letter-spacing: 0.1em; }
 
 #sectiontitle {
   width: 100vw;
+  overflow-x: hidden;
   top: 0;
   overflow: hidden;
   border-color: white !important;
@@ -358,9 +321,13 @@ h3 {
     background: #000; }
   #sectiontitle h1 {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 73%) scale(3.5, 8);
+    text-align: center;
+    width: 110vw;
+    font-size: 5rem;
+    top: 52%;
+    left: -5vw;
+    transform-origin: 0 0;
+    transform: scaleY(2.4);
     text-transform: uppercase;
     font-weight: bold;
     color: #fff; }
@@ -371,11 +338,14 @@ h3 {
   position: fixed;
   z-index: 20;
   top: 100px;
-  mix-blend-mode: exclusion;
-  animation: spin 540s infinite;
+  mix-blend-mode: screen;
+  animation: spin 154s infinite;
   animation-timing-function: linear;
-  pointer-events: none;
-  position: fixed; }
+  pointer-events: none; }
+
+#rock2, #rock3, #rock5 {
+  animation: spin-reverse 154s infinite;
+  animation-timing-function: linear; }
 
 #rock4 {
   width: 25vw; }
@@ -433,8 +403,8 @@ h3 {
 
 @media (max-width: 1000px) {
   #sectiontitle h1 {
-    transform: translate(-50%, -50%) scale(1, 3);
-    font: size 0.5rem; }
+    font-size: 2.5rem;
+    top: 45%; }
   .launch-date,
   .subtitle {
     font-size: 12px; }
@@ -458,9 +428,6 @@ h3 {
     max-height: calc(100vh/8); }
   .preamble {
     font-size: 10pt; }
-  #web .contents {
-    font-size: 15pt;
-    line-height: 16pt; }
   .buttons {
     text-align: center; }
   .indent {

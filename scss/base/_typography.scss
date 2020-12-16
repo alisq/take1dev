@@ -1,0 +1,68 @@
+@font-face {
+    font-family: 'calibre';
+    src: url('/fonts/Calibre-Regular.otf') format("opentype");  
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'calibre';
+    src: url('/fonts/Calibre-Semibold.otf') format("opentype");  
+    font-weight: bold;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'burgess';
+    src: url('/fonts/burgess-regular-pro.otf') format("opentype");  
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'burgess';
+    src: url('/fonts/burgess-italic-pro.otf') format("opentype");  
+    font-weight: normal;
+    font-style: italic;
+}
+
+::-moz-selection {
+    background: rgba(0, 0, 0, 0.99);
+    color:#FFF;
+}
+::selection {
+    background: rgba(0, 0, 0, 0.99);
+    color:#FFF;
+}
+
+h1, h2 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0 0 1em 0;
+}
+
+
+
+h3 {
+    font-size: 0.72em;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-family:$main-sans;
+    font-weight: bold;
+    text-align:center;
+}
+
+
+p {
+    margin-bottom:1em;
+}
+
+
+.caption {
+    
+    padding-top: 1em;
+    font-size:0.75em;
+    text-align:center;
+}
