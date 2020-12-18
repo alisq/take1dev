@@ -1,6 +1,14 @@
 $(document).ready(function(){
 
 
+
+  var rock1 = 1+Math.floor(Math.random()*4);
+
+  var rock2 = 1+Math.floor(Math.random()*4);
+
+  $("#rock1").attr("src","img/rock-"+rock1+".png")
+  $("#rock2").attr("src","img/rock-"+rock2+".png")
+
 $(".mmm,.mmm2").marqueeify({"speed":60});
 
 
@@ -108,8 +116,8 @@ fetch('https://editions-online.codepanel.in/json/interviews?_format=json')
                         "<div class='title'>"+
                         "<div class='name'>"+p[i].title[0].value+"</div>"+
                           
-                          "<div class='launch-date'>"+p[i].field_launch_date[0].value+"</div>"+
-                          "<div class='subtitle'>"+subtitle+"</div>"+
+                          "<h4 class='launch-date'>"+p[i].field_launch_date[0].value+"</h4>"+
+                          "<h4 class='subtitle'>"+subtitle+"</h4>"+
                        "</div>"+
                        "<div class='main-carousel'>"+
                         images+
@@ -172,7 +180,7 @@ $(".pull").each(function(){
       if (( !$(this).parent("li").hasClass("active") )  && (!$(this).parent("li").hasClass("disabled"))) {
             $("li.active").removeClass("active");
             $(this).parent("li").addClass("active");
-
+            $("#control").addClass("active")
             nid = $(this).parent("li").attr("id").replace("section-","");
 
             title = $("#"+nid+" .name").text();
@@ -188,7 +196,7 @@ $(".pull").each(function(){
 
 
       } else {
-        $("li.active").removeClass("active");
+        $(".active").removeClass("active");
         
         window.history.pushState("object or string", "Plug In Editions Online", window.location.href.split("?")[0]);
       }
@@ -196,7 +204,7 @@ $(".pull").each(function(){
     })
 
 
-    $(document).on("click",".active .open-close",function(){
+    $(document).on("click",".active .open-close, .close",function(){
           $(document).scrollTo(0,200)
           setTimeout(function(){
             $(".active").removeClass("active");
@@ -223,7 +231,7 @@ var url = new URL(window.location.href);
   a = "#"+url.searchParams.get("entry");
   
   setTimeout(function(){
-  $(a).addClass("active");
+  $(a+", #control").addClass("active");
   $(document).scrollTo(a,"200")
 
 },500);

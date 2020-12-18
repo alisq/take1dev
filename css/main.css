@@ -42,6 +42,23 @@ h1, h2 {
   font-weight: normal;
   margin: 0 0 1em 0; }
 
+.launch-date,
+.subtitle {
+  font-size: 1.3rem;
+  position: absolute;
+  font-family: "calibre";
+  font-weight: normal; }
+
+.launch-date {
+  text-align: left;
+  top: 1em;
+  left: 1em; }
+
+.subtitle {
+  text-align: left;
+  bottom: 1em;
+  right: 1em; }
+
 h3 {
   font-size: 0.72em;
   text-transform: uppercase;
@@ -79,7 +96,6 @@ a:hover {
 
 #menu > li,
 #interview-space > li {
-  border-bottom: 2px solid #000;
   height: calc(100vh/8);
   max-height: calc(100vh/8);
   transition: max-height 0.15s ease-out, height 0.15s ease-out;
@@ -109,7 +125,8 @@ a:hover {
 
 .disabled .title:hover {
   background: #FFF;
-  color: #000; }
+  color: #000;
+  border-color: #000; }
 
 .disabled .name:hover {
   color: rgba(0, 0, 0, 0.3); }
@@ -118,12 +135,6 @@ a:hover {
   height: auto;
   max-height: 20000px;
   transition: max-height 0.25s ease-in; }
-
-.open-close {
-  float: right;
-  cursor: pointer;
-  font-size: 2em;
-  margin-top: 12px; }
 
 .title {
   font-family: "burgess";
@@ -135,10 +146,12 @@ a:hover {
   font-size: 36px;
   position: relative;
   text-align: center;
-  background: #FFF; }
+  background: #FFF;
+  border-bottom: 2px solid #000; }
   .active .title, .title:hover {
     color: #FFF;
-    background: #000; }
+    background: #000;
+    border-color: #FFF; }
 
 .title-sans {
   font-family: "calibre"; }
@@ -149,23 +162,6 @@ a:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100vw; }
-
-.launch-date,
-.subtitle {
-  font-size: 1.3rem;
-  position: absolute;
-  font-family: "calibre";
-  font-weight: bold; }
-
-.launch-date {
-  text-align: left;
-  top: 1em;
-  left: 1em; }
-
-.subtitle {
-  text-align: left;
-  bottom: 1em;
-  right: 1em; }
 
 .an {
   font-family: "burgess"; }
@@ -184,6 +180,15 @@ a:hover {
 .main-carousel {
   margin: 0 0 2em;
   z-index: 50; }
+
+.flickity-prev-next-button {
+  top: 100%; }
+
+.flickity-button-icon {
+  fill: #D72727; }
+
+.flickity-page-dots .dot {
+  background: #D72727; }
 
 .carousel-cell {
   width: 100vw;
@@ -234,15 +239,27 @@ img {
 .thumbnail img {
   max-width: 100%; }
 
-.bibliography {
-  padding: 0;
-  list-style-type: none; }
-
-.bibliography li {
-  margin-bottom: 0.5em; }
-
-.bibliography li a {
-  word-break: break-all; }
+#control {
+  background: black;
+  color: white;
+  position: fixed;
+  bottom: -4rem;
+  width: 100%;
+  z-index: 10;
+  transition: all 0.2s;
+  text-align: center;
+  border-top: 1px solid #FFF; }
+  #control.active {
+    bottom: 0; }
+  #control .close {
+    font-family: "calibre";
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.5rem 0.5rem 0.25rem;
+    display: inline-block;
+    cursor: pointer; }
+    #control .close:hover {
+      color: #D72727; }
 
 .works-label, .tool_title {
   font-family: "burgess";
@@ -309,17 +326,20 @@ h3 {
   padding-right: 1em;
   letter-spacing: 0.1em; }
 
-#sectiontitle {
+#sectiontitle,
+#section-colophon {
   width: 100vw;
   overflow-x: hidden;
   top: 0;
   overflow: hidden;
-  border-color: white !important;
   height: calc(100vh/8);
   max-height: calc(100vh/8); }
-  #sectiontitle .title {
-    background: #000; }
-  #sectiontitle h1 {
+  #sectiontitle .title,
+  #section-colophon .title {
+    background: #000;
+    border-color: white !important; }
+  #sectiontitle h1,
+  #section-colophon h1 {
     position: absolute;
     text-align: center;
     width: 110vw;
@@ -331,7 +351,8 @@ h3 {
     text-transform: uppercase;
     font-weight: bold;
     color: #fff; }
-  #sectiontitle:hover {
+  #sectiontitle:hover,
+  #section-colophon:hover {
     background: #000; }
 
 .rock {
@@ -339,12 +360,12 @@ h3 {
   z-index: 20;
   top: 100px;
   mix-blend-mode: screen;
-  animation: spin 154s infinite;
+  animation: spin 354s infinite;
   animation-timing-function: linear;
   pointer-events: none; }
 
 #rock2, #rock3, #rock5 {
-  animation: spin-reverse 154s infinite;
+  animation: spin-reverse 554s infinite;
   animation-timing-function: linear; }
 
 #rock4 {
@@ -393,7 +414,8 @@ h3 {
   margin-top: 0; }
 
 #menu li.active {
-  background: #FFF; }
+  background: #FFF;
+  border-bottom: 2px solid #000; }
 
 #menu li.active:hover {
   background: #FFF; }
@@ -403,11 +425,13 @@ h3 {
 
 @media (max-width: 1000px) {
   #sectiontitle h1 {
-    font-size: 2.5rem;
-    top: 45%; }
+    font-size: 2rem;
+    transform: scale(1, 4);
+    top: 30%; }
   .launch-date,
   .subtitle {
-    font-size: 12px; }
+    font-size: 1.2rem;
+    font-weight: normal; }
   .name {
     font-size: 30px; }
   .launch-date {

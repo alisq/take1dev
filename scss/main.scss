@@ -39,7 +39,7 @@ a:hover {
 
 #menu > li,
 #interview-space > li {
-    border-bottom:2px solid #000;    
+    
     @include height-set;
     transition: max-height 0.15s ease-out, height 0.15s ease-out;
     overflow: hidden;
@@ -83,6 +83,7 @@ a:hover {
 .disabled .title:hover {
     background:#FFF; 
     color:#000;
+    border-color: #000;    
 }
 
 .disabled .name:hover {
@@ -100,14 +101,6 @@ a:hover {
 }
 
 
-
-.open-close {
-    float:right; 
-    cursor:pointer;
-    font-size: 2em;
-    margin-top: 12px;
-}
-
 .title {
     font-family: $main-serif;
     font-weight: 400;
@@ -118,11 +111,13 @@ a:hover {
     position:relative;
     text-align:center;
     background:#FFF;
+    border-bottom:2px solid #000;    
 
     .active &,
     &:hover {
         color:#FFF;
         background:#000;
+        border-color:#FFF;
     }
 }
 
@@ -137,26 +132,6 @@ a:hover {
     top:50%; left:50%;
     transform:translate(-50%,-50%);
     width:100vw;
-}
-.launch-date,
-.subtitle {
-    font-size:1.3rem;
-    position:absolute;
-    font-family:$main-sans;
-    font-weight:bold;
-}
-
-.launch-date {
-    text-align:left;
-    top:1em;
-    left:1em;
-}
-
-
-.subtitle {
-    text-align:left;
-    bottom:1em;
-    right:1em;
 }
 
 .an {
@@ -181,6 +156,18 @@ a:hover {
 .main-carousel {
     margin:0 0 2em;
     z-index:50;
+}
+
+.flickity-prev-next-button {
+    top: 100%;
+}
+
+.flickity-button-icon {
+    fill: $main-red;
+}
+
+.flickity-page-dots .dot {
+    background:$main-red;
 }
 .carousel-cell {
     width:100vw;
@@ -245,18 +232,41 @@ img  {
 }
 
 
-.bibliography {
-    padding: 0;
-    list-style-type: none;
+#control {
+    background:black;
+    color:white;
+    position: fixed;
+    bottom:-4rem;
+    width:100%;
+    z-index:10;
+    transition:all 0.2s;
+    text-align:center;
+    border-top:1px solid #FFF;
+    
+    &.active {
+        bottom:0;
+    }
+
+    .close {
+        font-family:$main-sans;
+        font-size:1.5rem;
+        font-weight: bold;
+        padding:0.5rem 0.5rem 0.25rem;
+        display: inline-block;
+        // float:right;
+        cursor:pointer;
+
+        &:hover {
+            color:$main-red;
+        }
+    }
+
 }
 
-.bibliography li {
-    margin-bottom:0.5em;
 
-}
-.bibliography li a{
-word-break: break-all;
-}
+
+
+
 
 .works-label, .tool_title {
     font-family:$main-serif;
@@ -344,17 +354,19 @@ h3 {
     letter-spacing: 0.1em;
 }
 
-#sectiontitle {
+#sectiontitle,
+#section-colophon {
     width:100vw;
     overflow-x:hidden;
     top:0;
-    overflow:hidden;
-    border-color:white!important;
+    overflow:hidden;    
     @include height-set;
+    
     
 
     .title {
         background:#000;
+        border-color:white!important;
     }
     h1 {
         position:absolute;
@@ -383,14 +395,14 @@ h3 {
     z-index:20;
     top:100px;
     mix-blend-mode: screen;
-    animation: spin 154s infinite;
+    animation: spin 354s infinite;
     animation-timing-function: linear;
     pointer-events:none;
     // display:none;
 }
 
 
-#rock2, #rock3, #rock5 { animation: spin-reverse 154s infinite; animation-timing-function: linear;}
+#rock2, #rock3, #rock5 { animation: spin-reverse 554s infinite; animation-timing-function: linear;}
 #rock4 { width:25vw; }
 #rock3 { width:30vw; }
 #rock5 { width:20vw; }
@@ -420,7 +432,7 @@ h3 {
 }
 
 
-#menu li.active { background:#FFF; }
+#menu li.active { background:#FFF; border-bottom:2px solid #000;}
 
 #menu li.active:hover { background:#FFF;}
 .image-cover { display:none; }
@@ -432,13 +444,17 @@ h3 {
     #sectiontitle h1 {
         
         
-         font-size:2.5rem;    
-         top:45%;
+         font-size:2rem;    
+         transform:scale(1,4);
+         top:30%;
     }
+
+    
 
     .launch-date,
     .subtitle {
-        font-size:12px
+        font-size:1.2rem;
+        font-weight:normal;
     }
 
     .name { font-size:30px}

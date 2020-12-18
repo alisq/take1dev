@@ -44,6 +44,27 @@ h1, h2 {
 }
 
 
+.launch-date,
+.subtitle {
+    font-size:1.3rem;
+    position:absolute;
+    font-family:$main-sans;
+    font-weight:normal;
+}
+
+.launch-date {
+    text-align:left;
+    top:1em;
+    left:1em;
+}
+
+
+.subtitle {
+    text-align:left;
+    bottom:1em;
+    right:1em;
+}
+
 
 h3 {
     font-size: 0.72em;
@@ -66,3 +87,5 @@ p {
     font-size:0.75em;
     text-align:center;
 }
+
+
