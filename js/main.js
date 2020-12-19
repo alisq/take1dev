@@ -157,7 +157,7 @@ $(".pull").each(function(){
     fetch('https://editions-online.codepanel.in/jsonapi/node/page/'+id) 
   .then(response => response.json())
   .then(p => {
-    //console.log(p)
+    console.log(p)
     
     $(this).find(".contents").html(p.data.body.value)  
     

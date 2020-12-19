@@ -351,6 +351,18 @@ h3 {
     text-transform: uppercase;
     font-weight: bold;
     color: #fff; }
+  #sectiontitle h2,
+  #section-colophon h2 {
+    position: absolute;
+    text-align: center;
+    width: 110vw;
+    font-size: 5rem;
+    top: 52%;
+    left: -5vw;
+    transform-origin: 0 0;
+    text-transform: uppercase;
+    font-weight: normal;
+    color: #fff; }
   #sectiontitle:hover,
   #section-colophon:hover {
     background: #000; }

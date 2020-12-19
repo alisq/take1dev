@@ -384,6 +384,21 @@ h3 {
         
     }
 
+    h2 {
+        position:absolute;
+        text-align:center;
+        width:110vw;
+        font-size:5rem;
+        top:52%; left:-5vw;
+        transform-origin: 0 0;
+        // transform: scaleY(2.4);
+        
+        text-transform: uppercase;
+        font-weight: normal;
+        color:#fff
+    
+    }
+
     &:hover {
         background:#000;
     }
