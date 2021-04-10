@@ -78,6 +78,16 @@ h3 {
 
 p {
     margin-bottom:1em;
+    
+    
+}
+
+.interviewer,
+.interviewee,
+p {
+    position:relative;
+        z-index:50;
+    
 }
 
 

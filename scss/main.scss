@@ -95,7 +95,7 @@ a:hover {
 #menu li.active {
 
     height:auto;
-    max-height: 20000px;
+    max-height: 50000px;
     transition: max-height 0.25s ease-in;
 
 }
@@ -255,7 +255,9 @@ img  {
         display: inline-block;
         // float:right;
         cursor:pointer;
-
+        position:relative;
+        z-index:80;
+ 
         &:hover {
             color:$main-red;
         }

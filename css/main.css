@@ -70,6 +70,12 @@ h3 {
 p {
   margin-bottom: 1em; }
 
+.interviewer,
+.interviewee,
+p {
+  position: relative;
+  z-index: 50; }
+
 .caption {
   padding-top: 1em;
   font-size: 0.75em;
@@ -133,7 +139,7 @@ a:hover {
 
 #menu li.active {
   height: auto;
-  max-height: 20000px;
+  max-height: 50000px;
   transition: max-height 0.25s ease-in; }
 
 .title {
@@ -257,7 +263,9 @@ img {
     font-weight: bold;
     padding: 0.5rem 0.5rem 0.25rem;
     display: inline-block;
-    cursor: pointer; }
+    cursor: pointer;
+    position: relative;
+    z-index: 80; }
     #control .close:hover {
       color: #D72727; }
 
